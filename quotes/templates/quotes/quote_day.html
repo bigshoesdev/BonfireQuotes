@@ -1,0 +1,88 @@
+{% extends "layout/front-layout.html" %} {% load static %} {% block content %}
+<main class="quote overlayMenu">
+
+    <div class="quote__bg">
+        <img src="{% get_media_prefix %}{{ post.img }}" alt="Background">
+    </div>
+    <!-- /.quote__bg -->
+
+    <div class="quote__content big-container-width">
+
+        <div class="quote__descr">
+
+            <h2 class="quote__descr-h2">Quote of the day</h2>
+
+            <div class="quote__descr-text">
+                <h1 class="h1">{{ post.quote }}</h1>
+                <div class="author">- {{post.author.name}}</div>
+            </div>
+            <!-- /.quote__descr-text -->
+
+            <div class="quote__descr-author">Photo by {{ post.img_author }}</div>
+
+            <div class="quote__button-mobile">
+                <a href="daily_inspiration_sign_up.html">Get inspiration daily</a>
+            </div>
+            <!-- /.quote__button-mobile -->
+
+        </div>
+        <!-- /.quote__descr -->
+
+    </div>
+    <!-- /.quote__content big-container-width -->
+</main>
+{% endblock content %} {% block footer %}
+<footer class="footer overlayMenu">
+    <div class="footer__content big-container-width">
+        <!-- START FOOTER ITEMS -->
+        <div class="footer__items">
+            <div class="footer__item">
+                <ul class="footer__shareOn">
+                    <li>
+                        Share on
+                    </li>
+                    <li>
+                        <a href="#" class="fb">
+                            <img src="{% static 'quotes/img/icons/facebook.png' %}" srcset="{% static 'quotes/img/icons/facebook.png' %} 1x, {% static 'quotes/img/icons/facebook@2x.png' %} 2x" alt="Facebook">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="twitter">
+                            <img src="{% static 'quotes/img/icons/twitter.png' %}" srcset="{% static 'quotes/img/icons/twitter.png' %} 1x, {% static 'quotes/img/icons/twitter@2x.png' %} 2x" alt="Twitter">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="mail">
+                            <img src="{% static 'quotes/img/icons/mail.png' %}" srcset="{% static 'quotes/img/icons/mail.png' %} 1x, {% static 'quotes/img/icons//mail@2x.png' %} 2x" alt="E-mail">
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.footer__shareOn -->
+            </div>
+            <!-- /.footer__item -->
+            <!-- /.footer__item
+                <div class="footer__item">
+                    <div class="footer__shared">
+                        <img src="{% static 'quotes/img/icons/shared.png' %}"
+                             srcset="{% static 'quotes/img/icons/shared.png' %} 1x, {% static 'quotes/img/icons/shared@2x.png' %} 2x"
+                             alt="Shared">
+                        <span>Shared 231 times</span>
+                    </div>
+                </div>
+                 /.footer__item -->
+
+            <div class="footer__item footer__item--button">
+                <div class="footer__button">
+                    <a href="{% url 'sign-up' %}">Get inspiration daily</a>
+                </div>
+            </div>
+            <!-- /.footer__item -->
+
+        </div>
+        <!-- /.footer__items -->
+        <!-- END FOOTER ITEMS -->
+
+    </div>
+    <!-- /.footer__content big-container-width -->
+</footer>
+{% endblock footer %}

@@ -1,0 +1,188 @@
+{% extends "quotes/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block header %}
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ebe6e8 0%, #b6ceac 90%) !important;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="row inner-bon">
+    <div class="col-md-6 nopadding">
+        <div class="left-back"></div>
+    </div>
+    <div class="col-md-6">
+        <div class="right-bon">
+            <form method="POST">
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    <div class="form-row">
+                        <div class="valid-feedback" style="display: block">
+                            {% for error in form.non_field_errors %}
+                                <p class="form-error">{{ error|escape }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+                <h2 class="newquote-title">New Quote</h2>
+                <div class="form-group">
+                    <label for="{{ form.quote.id_for_label }}"><b>Quote *: </b></label>
+                    {{ form.quote }}
+                    {% if form.quote.errors %}
+                        <div class="valid-feedback" style="display: block">
+                            {% for error in form.quote.errors %}
+                                <p class="form-error">{{ error|escape }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.author.id_for_label }}"><b>Author *:</b></label>
+                    {{ form.author }}
+                    {% if form.author.errors %}
+                        <div class="valid-feedback" style="display: block">
+                            {% for error in form.author.errors %}
+                                <p class="form-error">{{ error|escape }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="{{ form.category1.id_for_label }}"><b>Category1 :</b></label>
+                        {{ form.category1 }}
+                        {% if form.category1.errors %}
+                            <div class="valid-feedback" style="display: block">
+                                {% for error in form.category1.errors %}
+                                    <p class="form-error">{{ error|escape }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="{{ form.category2.id_for_label }}"><b>Category2 :</b></label>
+                        {{ form.category2 }}
+                        {% if form.category2.errors %}
+                            <div class="valid-feedback" style="display: block">
+                                {% for error in form.category2.errors %}
+                                    <p class="form-error">{{ error|escape }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form.background1.errors }}
+                        <label for="{{ form.background1.id_for_label }}"><b>Background1 :</b></label>
+                        <span class="colorpicker-input colorpicker-input--position-right">
+                            {{ form.background1 }}
+                            <span id="background1-toggle" class="colorpicker-custom-anchor colorpicker-circle-anchor">
+                              <span class="colorpicker-circle-anchor__color" data-color=""></span>
+                            </span>
+                        </span>
+                        {% if form.background1.errors %}
+                            <div class="valid-feedback" style="display: block">
+                                {% for error in form.background1.errors %}
+                                    <p class="form-error">{{ error|escape }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="{{ form.background2.id_for_label }}"><b>Backgrond2 :</b></label>
+                        <span class="colorpicker-input colorpicker-input--position-right">
+                            {{ form.background2 }}
+                            <span id="background2-toggle" class="colorpicker-custom-anchor colorpicker-circle-anchor">
+                                  <span class="colorpicker-circle-anchor__color" data-color=""></span>
+                            </span>
+                        </span>
+                        {% if form.background2.errors %}
+                            <div class="valid-feedback" style="display: block">
+                                {% for error in form.background2.errors %}
+                                    <p class="form-error">{{ error|escape }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <button class="btn btn-block btn-lg preview-btn" href="JavaScript:Void(0);">
+                        <i>Preview</i></button>
+                </div>
+                <div class="form-group mt-4">
+                    <button class="btn btn-primary btn-block btn-lg" type="submit">Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block footerscript %}
+    <div class="modal fade" id="preview_modal">
+        <div class="modal-dialog modal-dialog-centered" id='preview_data'></div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            var colorpickerInsideInputAnchor = $('#background1-toggle').find('[data-color]');
+            var colorPickerDefaultInsideInput = new ColorPicker.Default('#id_background1', {
+                hexOnly: true,
+                color: $("#id_background1").val()
+            });
+            colorpickerInsideInputAnchor.css('background', colorPickerDefaultInsideInput.getColor());
+            colorPickerDefaultInsideInput.on('change', function (color) {
+                colorpickerInsideInputAnchor.css('background', color);
+            });
+            colorpickerInsideInputAnchor.on('click', function () {
+                $('#id_background1').trigger('focus');
+
+                return false;
+            });
+
+            var colorpickerInsideInputAnchor = $('#background2-toggle').find('[data-color]');
+            var colorPickerDefaultInsideInput = new ColorPicker.Default('#id_background2', {
+                hexOnly: true,
+                color: $("#id_background2").val()
+            });
+            colorpickerInsideInputAnchor.css('background', colorPickerDefaultInsideInput.getColor());
+            colorPickerDefaultInsideInput.on('change', function (color) {
+                colorpickerInsideInputAnchor.css('background', color);
+            });
+            colorpickerInsideInputAnchor.on('click', function () {
+                $('#id_background2').trigger('focus');
+
+                return false;
+            });
+        })
+        $(".preview-btn").click(function (e) {
+            e.preventDefault();
+            var quote = $('#{{ form.quote.id_for_label }}').val();
+            var author = $('#{{ form.author.id_for_label }}').val();
+            var category1 = $('#{{form.category1.id_for_label}}').val();
+            var category2 = $('#{{form.category2.id_for_label}}').val();
+            var background1 = $('#{{form.background1.id_for_label}}').val();
+            var background2 = $('#{{form.background2.id_for_label}}').val();
+
+            $.ajax(
+                {
+                    url: "{% url 'post-preview' %}",
+                    type: 'POST',
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        author: author,
+                        quote: quote,
+                        background1: background1,
+                        background2: background2,
+                        category1: category1,
+                        category2: category2
+                    },
+                    success: function (result) {
+                        $('#preview_modal').modal('show');
+                        $("#preview_data").html(result);
+                    }
+                });
+        })
+    </script>
+{% endblock footerscript %}

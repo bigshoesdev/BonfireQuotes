@@ -1,0 +1,201 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fafafa;
+    color: #333333;
+    margin-top: 5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #444444;
+}
+
+ul {
+    margin: 0;
+}
+
+.bg-steel {
+    background-color: #221f1f;
+}
+
+.site-header .navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+}
+
+.content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.article-title {
+    color: #444444;
+}
+
+a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+}
+
+.article-content {
+    white-space: pre-line;
+}
+
+.article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+}
+
+.article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.article-metadata a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+}
+
+.account-heading {
+    font-size: 2.5rem;
+}
+
+.inner-bon {
+    margin-top: 40px;
+    background: linear-gradient(to bottom, #ece3e6 20%, #96a787 90%);
+    border-radius: 20px;
+}
+
+.bon-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.left-back {
+    background-image: url(/static/quotes/bon.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    border-radius: 20px;
+    min-height: 900px;
+}
+
+.right-bon {
+    width: 100%;
+    padding-left: 0px;
+    padding-top: 50px;
+    padding-right: 20px;
+    display: inline-block;
+}
+
+p.form-error {
+    font-size: 20px;
+    background-color: #d8afaf;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.modal-content button.close {
+    padding: 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+    text-shadow: none;
+    float: right;
+    width: 30px;
+    right: 10px;
+    position: absolute;
+    color: #fff;
+    opacity: 1;
+    border: 1px #fff solid;
+    height: 30px;
+    top: 10px;
+    border-radius: 50%;
+    z-index: 1050;
+}
+
+.modal-content button.close:hover {
+    color: #fff;
+}
+
+.modal-content .head-txt {
+    text-transform: uppercase;
+    font-size: 22px;
+    margin-bottom: 150px;
+}
+
+.modal-content .head-txt span {
+    font-weight: bold;
+}
+
+.modal-content .mdl-txt {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 120px;
+}
+
+.modal-content p.tre-txt {
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.modal-content p.tre-txt span {
+    font-weight: bold;
+}
+
+.modal-content .footer.text-center {
+    margin-top: 80px;
+}
+
+.modal-dialog {
+    max-width: 650px;
+}
+
+.fade {
+    opacity: 0.9 !important;
+}
+
+html {
+    height: 100%;
+}

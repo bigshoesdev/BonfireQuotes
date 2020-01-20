@@ -1,0 +1,60 @@
+{% extends "layout/front-layout.html" %} {% load static %} {% block content %}
+    <!-- START MAIN PAGE CONTENT -->
+    <main class="mainContent overlayMenu">
+        <div class="mainContent__content container-width">
+            <!-- START MAIN CONTENT ITEMS -->
+            <div class="mainContent__items">
+                <div class="mainContent__item first">
+                    <img src="{% get_media_prefix %}{{ post.img }}" alt="Item 1"/>
+
+                    <div class="wrap">
+                        <h2 class="title">Quote of the day</h2>
+                        <p class="text">{{ post.quote | truncatewords:7 }}</p>
+                        <a href="{% url 'quotes-day' %}" class="button">View Quote</a>
+                    </div>
+                </div>
+                <!-- /.mainContent__item -->
+
+                <div class="mainContent__item second">
+                    <img src="{% static 'quotes/img/home-item-2.jpg' %}" alt="Item 2"/>
+
+                    <div class="wrap">
+                        <h2 class="title">Photo of the day</h2>
+                        <a href="{% url 'potd-day' %}" class="button">View Photo</a>
+                    </div>
+                </div>
+                <!-- /.mainContent__item -->
+
+                <div class="mainContent__item third">
+                    <img src="{% static 'quotes/img/home-item-3.jpg' %}" alt="Item 3"/>
+
+                    <div class="wrap">
+                        <h2 class="title">
+                            Get new inspiratoinal quotes & photos delivered to your inbox daily.
+                        </h2>
+
+                        <form action="{% url 'subscribe' %}" class="form" method="POST">
+                            {% csrf_token %}
+                            <label>
+                                {{ form }}
+                                <span>Start your day off right!</span>
+                            </label>
+
+                            <button type="submit" class="button">Sign Up</button>
+                        </form>
+{#                        <div class="mobileLink">#}
+{#                            <p>Start your day off right!</p>#}
+{#                            <a href="{% url 'sign-up' %}">Sign Up</a>#}
+{#                        </div>#}
+                    </div>
+                </div>
+                <!-- /.mainContent__item -->
+            </div>
+            <!-- /.mainContent__items -->
+            <!-- END MAIN CONTENT ITEMS -->
+        </div>
+        <!-- /.mainContent__content container-width -->
+    </main>
+    <!-- /.mainContent -->
+    <!-- END MAIN PAGE CONTENT -->
+{% endblock content %}

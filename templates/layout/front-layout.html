@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" /> {% if title %}
+    <title>Inspire - {{ title }}</title>
+    {% else %}
+    <title>Inspire</title>
+    {% endif %}
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- Template Basic Images Start -->
+    <meta property="og:image" content="path/to/image.jpg" />
+    <link rel="icon" href="{% static 'quotes/img/favicon/favicon.ico' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'quotes/img/favicon/apple-touch-icon-180x180.png' %}" />
+    <!-- Template Basic Images End -->
+    <!-- Custom Browsers Color Start -->
+    <meta name="theme-color" content="#000" />
+    <!-- Custom Browsers Color End -->
+
+    <link rel="stylesheet" href="{% static 'quotes/css/main.min.css' %}" /> {% block header %}{% endblock %}
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- START HEADER -->
+        <header class="header">
+            <div class="header__content">
+                <!-- START HEADER TOPLINE -->
+                <div class="header__topline-wrap">
+                    <div class="header__topline container-width">
+                        <h1 class="header__topline-h1">Inspire</h1>
+
+                        <div class="header__menu">
+                            <button class="header__menu-button" aria-label="Open/close menu">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </button>
+
+                            <nav class="header__menu-nav">
+                                <ul class="header__menu-list">
+                                    <li><a href="{% url 'quotes-home' %}">Home</a></li>
+                                    <li>
+                                        <a href="{% url 'quotes-day' %}">Quote of the day</a>
+                                    </li>
+                                    <li><a href="{% url 'potd-day' %}">Photo of the day</a></li>
+                                    <li>
+                                        <a href="{% url 'sign-up' %}">Get inspiration daily</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- /.header__menu -->
+
+                        <div class="header__logo">
+                            <a href="{% url 'quotes-home' %}">
+                                <img src="{% static 'quotes/img/logo.png' %}" srcset="{% static 'quotes/img/logo.png' %} 1x, {% static 'quotes/img/logo@2x.png' %} 2x" alt="Inspire" />
+                            </a>
+                        </div>
+                        <!-- /.header__logo -->
+                    </div>
+                    <!-- /.header__topline container-width -->
+                </div>
+                <!-- /.header__topline-wrap -->
+                <!-- END HEADER TOPLINE -->
+            </div>
+            <!-- /.header__content -->
+        </header>
+        <!-- /.header -->
+        <!-- END HEADER -->
+
+        <!-- START MAIN PAGE CONTENT -->
+        {% block content %}{% endblock %} {% if messages %} {% for message in messages %} {% endfor %}{% endif %}
+        <!-- END MAIN PAGE CONTENT -->
+
+        <!-- START FOOTER -->
+        {% block footer %}{% endblock %}
+        <!-- END FOOTER -->
+    </div>
+    <!-- /.page-wrapper -->
+
+    <script src="{% static 'quotes/js/scripts.min.js' %}"></script>
+</body>
+
+</html>

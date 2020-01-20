@@ -1,0 +1,39 @@
+{% extends "layout/front-layout.html" %} {% load static %} {% block content %}
+<main class="quote overlayMenu">
+    <div class="quote__bg dailyInspiration__bg">
+        <img src="{% static 'quotes/img/dailyInspiration-bg.jpg' %}" alt="Background" />
+    </div>
+    <!-- /.quote__bg -->
+
+    <div class="quote__content dailyInspiration__content container-width">
+        <!-- START DAILY INSPIRATION CONTENT -->
+        <div class="quote__descr dailyInspiration__descr">
+            <h1 class="h1">
+                <b>Inspiration</b><br /> Delivered <br /> Daily!
+            </h1>
+
+            <form action="{% url 'subscribe' %}" class="dailyInspiration__form" method="POST">
+                {% csrf_token %} {{ form }}
+                <button type="submit"><b>Submit</b></button>
+            </form>
+
+            <!-- /.dailyInspiration__form -->
+
+            <div class="dailyInspiration__text">Start your morning right!</div>
+
+            <div class="dailyInspiration__refuse">
+                <a href="{% url 'quotes-home' %}">No, Thanks</a>
+            </div>
+            <!-- /.dailyInspiration__refuse -->
+        </div>
+        <!-- /.quote__descr dailyInspiration__descr -->
+
+        <div class="dailyInspiration__mobileBg">
+            <img src="{% static 'quotes/img/dailyInspiration-mobile-bg.jpg' %}" alt="Background" />
+        </div>
+        <!-- /.dailyInspiration__mobileBg -->
+        <!-- END DAILY INSPIRATION CONTENT -->
+    </div>
+    <!-- /.quote__content big-container-width -->
+</main>
+{% endblock content %}

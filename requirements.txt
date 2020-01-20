@@ -1,0 +1,14 @@
+dill==0.3.1.1
+Django==2.2.7
+django-crispy-forms==1.8.0
+django-slugger==1.1.2
+klepto==0.1.8
+Pillow==6.2.1
+pox==0.2.7
+pykakasi==1.2
+pytz==2019.3
+remember==0.1
+six==1.13.0
+sqlparse==0.3.0
+Unidecode==1.1.1
+Unihandecode==0.81

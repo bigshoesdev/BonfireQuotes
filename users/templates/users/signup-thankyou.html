@@ -1,0 +1,42 @@
+{% extends "layout/front-layout.html" %} {% load static %} {% block content %}
+<!-- START QUOTE PAGE CONTENT -->
+<main class="quote overlayMenu">
+
+    <div class="quote__bg dailySignUp__bg">
+        <img src="{% static 'quotes/img/dailySignUp-bg.jpg' %}" alt="Background">
+    </div>
+    <!-- /.quote__bg dailySignUp__bg -->
+
+    <div class="quote__content dailySignUp__content container-width">
+
+        <!-- START DAILY SIGN UP CONTENT -->
+        <div class="quote__descr dailySignUp__descr">
+
+            <h1 class="dailySignUp__descr-h1">Thank You!</h1>
+
+            <div class="dailySignUp__text">
+                <p class="text">Will be<br> sending you<br> inspiration<br> shortly!</p>
+            </div>
+            <!-- /.dailySignUp__text -->
+
+            <div class="dailySignUp__button">
+                <p class="title">Have you seen the Photo of The Day?</p>
+                <a href="{% url 'potd-day' %}" class="button">View Photo</a>
+            </div>
+            <!-- /.dailySignUp__button -->
+
+        </div>
+        <!-- /.quote__descr dailySignUp__descr -->
+
+        <div class="dailyInspiration__mobileBg dailySignUp__mobileBg">
+            <img src="{% static 'quotes/img/dailySignUp-mobile-bg.jpg' %}" alt="Background">
+        </div>
+        <!-- /.dailyInspiration__mobileBg -->
+        <!-- END DAILY SIGN UP CONTENT -->
+
+    </div>
+    <!-- /.quote__content big-container-width -->
+</main>
+<!-- /.quote -->
+<!-- END QUOTE PAGE CONTENT -->
+{% endblock content %}

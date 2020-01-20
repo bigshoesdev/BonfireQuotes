@@ -1,0 +1,86 @@
+{% extends "layout/front-layout.html" %} {% load static %} {% block content %}
+<main class="photo overlayMenu">
+    <div class="photo__content">
+
+        <div class="photo__wrap">
+            <h1 class="photo__h1">Photo of the day</h1>
+
+            <p class="photo__titlePhoto">{{ photo.title }}</p>
+
+            <div class="photo__img">
+                <img src="{% get_media_prefix %}{{ photo.img }}" alt="Photo">
+            </div>
+
+            <div class="photo__author">Photo by {{photo.photographer}}</div>
+
+            <div class="quote__button-mobile photo__button-mobile">
+                <a href="{% url 'sign-up' %}">Get inspiration daily</a>
+            </div>
+            <!-- /.quote__button-mobile -->
+        </div>
+        <!-- /.photo__wrap -->
+
+    </div>
+    <!-- /.photo__content -->
+</main>
+{% endblock content %} {% block footer %}
+<footer class="footer footer--white footer--toggleBg overlayMenu">
+    <div class="footer__content big-container-width">
+        <!-- START FOOTER ITEMS -->
+        <div class="footer__items">
+            <div class="footer__item">
+                <ul class="footer__shareOn">
+                    <li>
+                        Share on
+                    </li>
+                    <li>
+                        <a href="#" class="fb">
+                            <img class="white" src="{% static 'quotes/img/icons/facebook.png' %}" srcset="{% static 'quotes/img/icons/facebook.png' %} 1x, {% static 'quotes/img/icons/facebook@2x.png' %} 2x" alt="Facebook">
+                            <img src="{% static 'quotes/img/icons/facebook-dark.png' %}" srcset="{% static 'quotes/img/icons/facebook-dark.png' %} 1x, {% static 'quotes/img/icons/facebook-dark@2x.png' %} 2x" alt="Facebook">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="twitter">
+                            <img class="white" src="{% static 'quotes/img/icons/twitter.png' %}" srcset="{% static 'quotes/img/icons/twitter.png' %} 1x, {% static 'quotes/img/icons/twitter@2x.png' %} 2x" alt="Twitter">
+                            <img src="{% static 'quotes/img/icons/twitter-dark.png' %}" srcset="{% static 'quotes/img/icons/twitter-dark.png' %} 1x, {% static 'quotes/img/icons/twitter-dark@2x.png' %} 2x" alt="Twitter">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="mail">
+                            <img class="white" src="{% static 'quotes/img/icons/mail.png' %}" srcset="{% static 'quotes/img/icons/mail.png' %} 1x, {% static 'quotes/img/icons//mail@2x.png' %} 2x" alt="E-mail">
+                            <img src="{% static 'quotes/img/icons/mail-dark.png' %}" srcset="{% static 'quotes/img/icons/mail-dark.png' %} 1x, {% static 'quotes/img/icons//mail-dark@2x.png' %} 2x" alt="E-mail">
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.footer__shareOn -->
+            </div>
+            <!-- /.footer__item 
+
+                <div class="footer__item">
+                    <div class="footer__shared">
+                        <img class="white" src="{% static 'quotes/img/icons/shared.png' %}"
+                             srcset="{% static 'quotes/img/icons/shared.png' %} 1x, {% static 'quotes/img/icons/shared@2x.png' %} 2x"
+                             alt="Shared">
+                        <img src="{% static 'quotes/img/icons/shared-dark.png' %}"
+                             srcset="{% static 'quotes/img/icons/shared-dark.png' %} 1x, {% static 'quotes/img/icons/shared-dark@2x.png' %} 2x"
+                             alt="Shared">
+                        <span>Shared 231 times</span>
+                    </div>
+                </div>
+                 /.footer__item -->
+
+            <div class="footer__item footer__item--button">
+                <div class="footer__button footer__button--white">
+                    <a href="{% url 'sign-up' %}">Get inspiration daily</a>
+                </div>
+            </div>
+            <!-- /.footer__item -->
+
+        </div>
+        <!-- /.footer__items -->
+        <!-- END FOOTER ITEMS -->
+
+    </div>
+    <!-- /.footer__content big-container-width -->
+</footer>
+{% endblock footer %}

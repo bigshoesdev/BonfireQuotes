@@ -1,0 +1,41 @@
+{% extends "quotes/base.html" %} {% load like %} {% load static %} {% block content %} {% for post in posts %}
+<article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ post.user.profile.image.url }}">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">{{ post.user }}
+                        {#                &&#}
+                        {#                {% for category in post.categories.all %}#}
+                        {#                    {{ category.name }}#}
+                        {#                {% endfor %}#}
+                    </a>
+            <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+        </div>
+        <h2><a class="article-title" href="{% url 'post-detail' post.id %}">" {{ post.quote }} "</a></h2>
+        <p class="article-content" style="line-height: 15px">
+            Author: {{ post.author }} <br/> Like: {{ post.likes }} {# {% if post.feature_qotd %}#} {# Featured <i class="fa fa-check"></i>#} {# {% endif %}#} {% if user.is_authenticated %} {% get_like post as like %} {% if like.value == 0 %}
+            <a href="#" onClick="document.getElementById('likebutton{{ post.id }}').submit()" class="btn btn-primary px-2 mr-1" style="float:right">
+                <img src="{% static 'quotes/fire_icon.png' %}" style="width: 20px; height:30px;">
+            </a>
+            {% elif like.value == 1 %}
+            <a href="#" onClick="document.getElementById('dislikebutton{{ post.id }}').submit()" class="btn btn-danger px-2" style="float:right">
+                <img src="{% static 'quotes/fire_icon.png' %}" style="width: 20px; height:30px;">
+            </a>
+            {% else %}
+            <a href="#" onClick="document.getElementById('likebutton{{ post.id }}').submit()" class="btn btn-primary px-2 mr-1" style="float:right">
+                <img src="{% static 'quotes/fire_icon.png' %}" style="width: 20px; height:30px;">
+            </a>
+            {% endif %}
+            <form id="likebutton{{ post.id }}" method="POST" action="{% url 'post-like' post.id 1 %}">
+                {% csrf_token %}
+                <input type="hidden">
+            </form>
+            <form id="dislikebutton{{ post.id }}" method="POST" action="{% url 'post-like' post.id 0 %}">
+                {% csrf_token %}
+                <input type="hidden">
+            </form>
+            {% endif %}
+        </p>
+    </div>
+</article>
+{% endfor %} {% endblock content %}

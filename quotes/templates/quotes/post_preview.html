@@ -1,0 +1,42 @@
+{% load static %}
+<style>
+    .modal-content{
+	background: linear-gradient(to bottom, {{ background1 }} 0%, {{background2}} 115%);
+	border: 0px;
+	padding:50px;
+	color:#fff;
+	font-family: sans-serif;
+}
+</style>
+
+<div class="modal-content">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="modal-body">
+    <div class="head-txt">
+        quote about <br> <span>{{category1}} {% if category2 %} and {{ category2 }}{% endif %}</span>
+    </div>
+
+    <div class="mdl-txt">
+        {% if quote %}
+        {% autoescape off %}
+        "{{ quote }}"
+        {% endautoescape %}
+        {% endif %}
+    </div>
+
+    <p class="tre-txt">
+         <span>{{author}}</span>
+{#        {% if author|length == 1 %}#}
+{#             <span>{{author.0}}</span>#}
+{#        {% else %}#}
+{#            {{ author.0 }}<br>#}
+{#            <span>{% for aut in author|slice:"1:"  %}{{ aut }} {% endfor %}</span>#}
+{#        {% endif %}#}
+        <p>
+    <div class="footer text-center">
+        <img src="{% static 'quotes/logo.png' %}">
+    </div>
+  </div>
+</div>
