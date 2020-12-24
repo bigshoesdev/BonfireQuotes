@@ -5,6 +5,6 @@ It is private site that posts the quotes for users. The users can post their quo
 Python, Django, Boostrap, CSS, Celery, SQLite
 
 # Images
-![alt text](https://github.com/bigshoesdev/Ammetlife-Laravel/blob/master/Capture.PNG?raw=true)
-![alt text](https://github.com/bigshoesdev/Ammetlife-Laravel/blob/master/Capture1.PNG?raw=true)
-![alt text](https://github.com/bigshoesdev/Ammetlife-Laravel/blob/master/Capture2.PNG?raw=true)
+![alt text](https://github.com/bigshoesdev/BonfireQuotes/blob/master/Screenshot_1.png?raw=true)
+![alt text](https://github.com/bigshoesdev/BonfireQuotes/blob/master/Screenshot_2.png?raw=true)
+![alt text](https://github.com/bigshoesdev/BonfireQuotes/blob/master/Screenshot_3.png?raw=true)
